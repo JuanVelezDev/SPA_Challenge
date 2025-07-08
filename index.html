@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Estudiantes</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="perfil">
+      <img src="profile.jpg" alt="Usuario">
+      <p class="nombre">Juan Admin</p>
+      <p class="rol">Administrador</p>
+    </div>
+    <nav class="menu">
+      <a href="#">Inicio</a>
+      <a href="#">Cursos</a>
+      <a href="#">Usuarios</a>
+      <a href="#">Pagos</a>
+      <a href="#">Reportes</a>
+      <a href="#">Configuración</a>
+    </nav>
+    <button class="logout">Cerrar sesión</button>
+  </aside>
+
+  <main class="contenido">
+    <header>
+      <h1>Lista de Estudiantes</h1>
+      <button class="agregar">Agregar Estudiante</button>
+    </header>
+    <table>
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Matrícula</th>
+          <th>Fecha ingreso</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="estudiante.jpg" alt="Estudiante"></td>
+          <td>Karthi</td>
+          <td>karthi@gmail.com</td>
+          <td>7350477760</td>
+          <td>1234567350477760</td>
+          <td>08-Dic-2021</td>
+          <td>
+            <button class="editar">Editar</button>
+            <button class="eliminar">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>
