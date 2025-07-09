@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Panel de Estudiantes</title>
-  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <aside class="sidebar">
     <div class="perfil">
-      <img src="profile.jpg" alt="Usuario">
+      <img src="./img/Profile.jpg" alt="Usuario">
       <p class="nombre">Juan Admin</p>
       <p class="rol">Administrador</p>
     </div>
@@ -27,12 +27,23 @@
   <main class="contenido">
     <header>
       <h1>Lista de Estudiantes</h1>
-      <button class="agregar">Agregar Estudiante</button>
+      <button onclick="showForm()">Agregar Estudiante</button>
     </header>
-    <table>
+
+    <form id="studentForm" style="display:none;">
+      <input type="hidden" id="studentId">
+      <input type="text" id="name" placeholder="Nombre" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="text" id="phone" placeholder="Teléfono" required>
+      <input type="text" id="enrollNumber" placeholder="Matrícula" required>
+      <input type="text" id="dateOfAdmission" placeholder="Fecha ingreso" required>
+      <button type="submit">Guardar</button>
+      <button type="button" onclick="hideForm()">Cancelar</button>
+    </form>
+
+    <table id="studentTable">
       <thead>
         <tr>
-          <th>Imagen</th>
           <th>Nombre</th>
           <th>Email</th>
           <th>Teléfono</th>
@@ -41,21 +52,9 @@
           <th>Acciones</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td><img src="estudiante.jpg" alt="Estudiante"></td>
-          <td>Karthi</td>
-          <td>karthi@gmail.com</td>
-          <td>7350477760</td>
-          <td>1234567350477760</td>
-          <td>08-Dic-2021</td>
-          <td>
-            <button class="editar">Editar</button>
-            <button class="eliminar">Eliminar</button>
-          </td>
-        </tr>
-      </tbody>
+      <tbody></tbody>
     </table>
   </main>
+  <script src="script.js"></script>
 </body>
 </html>

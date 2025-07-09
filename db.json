@@ -1,8 +1,60 @@
 {
-  "id": 1,
-  "name": "Juan Velez",
-  "email": "correo@ejemplo.com",
-  "phone": "1234567890",
-  "enrollNumber": "12345678901234",
-  "dateOfAdmission": "08-Dec-2021"
+  "users": [
+    {
+      "name": "Juan",
+      "email": "correo@ejemplo.com",
+      "phone": "1234567890",
+      "enrollNumber": "12345678901234",
+      "dateOfAdmission": "08-Dec-2021",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "name": "Karti",
+      "email": "correo@ejemplo.com",
+      "phone": "1234567890",
+      "enrollNumber": "12345678901234",
+      "dateOfAdmission": "08-Dec-2021"
+    },
+    {
+      "id": "3",
+      "name": "Sita",
+      "email": "correo@ejemplo.com",
+      "phone": "1234567890",
+      "enrollNumber": "12345678901234",
+      "dateOfAdmission": "08-Dec-2021"
+    },
+    {
+      "id": "4",
+      "name": "Ram",
+      "email": "correo@ejemplo.com",
+      "phone": "1234567890",
+      "enrollNumber": "12345678901234",
+      "dateOfAdmission": "08-Dec-2021"
+    },
+    {
+      "id": "5",
+      "name": "Ravi",
+      "email": "correo@ejemplo.com",
+      "phone": "1234567890",
+      "enrollNumber": "12345678901234",
+      "dateOfAdmission": "08-Dec-2021"
+    },
+    {
+      "id": "6",
+      "name": "Sita",
+      "email": "correo@ejemplo.com",
+      "phone": "1234567890",
+      "enrollNumber": "12345678901234",
+      "dateOfAdmission": "08-Dec-2021"
+    },
+    {
+      "id": "7",
+      "name": "Gita",
+      "email": "correo@ejemplo.com",
+      "phone": "1234567890",
+      "enrollNumber": "12345678901234",
+      "dateOfAdmission": "08-Dec-2021"
+    }
+  ]
 }
