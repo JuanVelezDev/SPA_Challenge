@@ -1,109 +1,88 @@
-// Elementos del DOM
+const API_URL = 'http://localhost:3000/users';
+
+let students = [];
+
+// Obtener referencias a los elementos del DOM
 const form = document.getElementById('studentForm');
-const nameInput = document.getElementById('name');
-const emailInput = document.getElementById('email');
-const phoneInput = document.getElementById('phone');
-const enrollInput = document.getElementById('enrollNumber');
-const dateInput = document.getElementById('dateOfAdmission');
-const idInput = document.getElementById('studentId');
-const table = document.getElementById('studentTable');
 const tableBody = document.querySelector('#studentTable tbody');
 const addButton = document.querySelector('header button');
 
-let editingId = null;
-
-// Mostrar solo la tabla
-function showTable() {
-  table.style.display = 'table';
-  form.style.display = 'none';
-  addButton.style.display = 'inline-block';
-}
-
-// Mostrar solo el formulario
-function showForm(student = null) {
-  form.style.display = 'block';
-  table.style.display = 'none';
-  addButton.style.display = 'none';
-  if (student) {
-    nameInput.value = student.name;
-    emailInput.value = student.email;
-    phoneInput.value = student.phone;
-    enrollInput.value = student.enrollNumber;
-    dateInput.value = student.dateOfAdmission;
-    idInput.value = student.id;
-    editingId = student.id;
+// Mostrar el formulario para agregar/editar estudiante
+window.showForm = async function(id = null) {
+  if (location.hash !== "#inicio") location.hash = "#inicio";
+  form.style.display = '';
+  if (id !== null) {
+    // Editar: obtener datos del estudiante
+    const student = students.find(s => s.id == id);
+    if (student) {
+      document.getElementById('studentId').value = student.id;
+      document.getElementById('name').value = student.name;
+      document.getElementById('email').value = student.email;
+      document.getElementById('phone').value = student.phone;
+      document.getElementById('enrollNumber').value = student.enrollNumber;
+      document.getElementById('dateOfAdmission').value = student.dateOfAdmission;
+    }
   } else {
+    document.getElementById('studentId').value = '';
     form.reset();
-    idInput.value = '';
-    editingId = null;
   }
-}
+};
 
-// Ocultar formulario y mostrar tabla
-function hideForm() {
+// Ocultar el formulario
+window.hideForm = function() {
+  form.style.display = 'none';
   form.reset();
-  editingId = null;
-  showTable();
-}
+};
 
-// Obtener y mostrar estudiantes
-async function fetchStudents() {
-  const res = await fetch('http://localhost:3000/users');
-  const students = await res.json();
-  renderTable(students);
-}
-
-// Renderizar estudiantes en la tabla
-function renderTable(students) {
+// Renderizar la tabla de estudiantes
+function renderTable() {
   tableBody.innerHTML = '';
   students.forEach(student => {
-    const row = document.createElement('tr');
-    row.innerHTML = `
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
       <td>${student.name}</td>
       <td>${student.email}</td>
       <td>${student.phone}</td>
       <td>${student.enrollNumber}</td>
       <td>${student.dateOfAdmission}</td>
       <td>
-        <button onclick='editStudent(${JSON.stringify(student)})'>Editar</button>
-        <button onclick='deleteStudent(${JSON.stringify(student.id)})'>Eliminar</button>
+        <button onclick="showForm('${student.id}')">Editar</button>
+        <button onclick="deleteStudent('${student.id}')">Eliminar</button>
       </td>
     `;
-    tableBody.appendChild(row);
+    tableBody.appendChild(tr);
   });
 }
 
-// Editar estudiante (rellenar formulario)
-window.editStudent = function(student) {
-  showForm(student);
-};
+// Cargar estudiantes desde la API
+async function fetchStudents() {
+  const res = await fetch(API_URL);
+  students = await res.json();
+  renderTable();
+}
 
-// Eliminar estudiante (confirmar y eliminar)
-window.deleteStudent = async function(id) {
-  if (confirm('¿Seguro que deseas eliminar este estudiante?')) {
-    await fetch(`http://localhost:3000/users/${id}`, { method: 'DELETE' });
-    fetchStudents();
-  }
-};
-
-// Crear o actualizar estudiante
+// Guardar estudiante (agregar o editar)
 form.onsubmit = async function(e) {
   e.preventDefault();
+  const id = document.getElementById('studentId').value;
   const student = {
-    name: nameInput.value.trim(),
-    email: emailInput.value.trim(),
-    phone: phoneInput.value.trim(),
-    enrollNumber: enrollInput.value.trim(),
-    dateOfAdmission: dateInput.value.trim()
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    enrollNumber: document.getElementById('enrollNumber').value,
+    dateOfAdmission: document.getElementById('dateOfAdmission').value
   };
-  if (editingId) {
-    await fetch(`http://localhost:3000/users/${editingId}`, {
+
+  if (id) {
+    // Editar
+    await fetch(`${API_URL}/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(student)
     });
   } else {
-    await fetch('http://localhost:3000/users', {
+    // Agregar
+    await fetch(API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(student)
@@ -113,26 +92,22 @@ form.onsubmit = async function(e) {
   fetchStudents();
 };
 
-// Función para navegar entre vistas
-function navigateTo(view) {
-  let main = document.querySelector('main.contenido');
-  if (view === 'estudiantes') {
-    main.innerHTML = `<h2>Reporte de Estudiantes</h2><p>Contenido del reporte de estudiantes...</p>`;
-  } else if (view === 'cursos') {
-    main.innerHTML = `<h2>Reporte de Cursos</h2><p>Contenido del reporte de cursos...</p>`;
-  } else if (view === 'pagos') {
-    main.innerHTML = `<h2>Reporte de Pagos</h2><p>Contenido del reporte de pagos...</p>`;
-  }
-}
+// Eliminar estudiante
+window.deleteStudent = async function(id) {
+  await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+  fetchStudents();
+};
 
-// Inicializar SPA
+// Mostrar formulario solo si estamos en #inicio
+window.addEventListener('hashchange', () => {
+  if (location.hash !== "#inicio") hideForm();
+});
+
+// Botón para agregar estudiante
 addButton.onclick = () => showForm();
-form.querySelector('button[type="button"]').onclick = hideForm;
 
-showTable();
+// Inicializar tabla al cargar
 fetchStudents();
-window.showForm = showForm;
-window.hideForm = hideForm;
 
 
 const routes = {

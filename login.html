@@ -17,7 +17,7 @@
   <script>
     document.getElementById('loginForm').onsubmit = function(e) {
       e.preventDefault();
-      // Validación simple: usuario admin, contraseña admin
+      
       const user = document.getElementById('loginUser').value;
       const pass = document.getElementById('loginPass').value;
       if(user === 'admin' && pass === 'admin') {
