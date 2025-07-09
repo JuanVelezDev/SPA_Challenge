@@ -133,3 +133,30 @@ showTable();
 fetchStudents();
 window.showForm = showForm;
 window.hideForm = hideForm;
+
+
+const routes = {
+  "/login": "login.html",
+  "/cursos": "cursos.html",
+  "/usuarios": "usuarios.html",
+  "/reportes": "reportes.html",
+  "/estudiantes": "estudiantes.html",
+  "/pagos": "pagos.html"
+}
+
+
+
+function isAuth() { 
+  const result = localStorage.getItem('isAuth') || null 
+    return result
+}
+
+if (!localStorage.getItem('isAuth')) {
+  window.location.href = 'login.html';
+}
+
+document.querySelector('.logout').onclick = function() {
+  localStorage.removeItem('isAuth');
+  window.location.href = 'login.html';
+};
+
