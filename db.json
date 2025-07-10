@@ -1,4 +1,18 @@
 {
+  "authusers": [
+    {
+      "id": "1",
+      "name": "Juan",
+      "password": "123",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "name": "Marisol",
+      "password": "456",
+      "role": "user"
+    }
+  ],
   "users": [
     {
       "id": "2",
@@ -17,12 +31,20 @@
       "dateOfAdmission": "08-Dec-2021"
     },
     {
+      "id": "caaf",
       "name": "juanes Velez",
       "email": "correo@ejemplo.com",
       "phone": "12312",
       "enrollNumber": "123123",
-      "dateOfAdmission": "2025-07-18",
-      "id": "caaf"
+      "dateOfAdmission": "2025-07-18"
+    },
+    {
+      "id": "e23b",
+      "name": "Mariana",
+      "email": "Ma2007rianac@gmail.com",
+      "phone": "3005296686",
+      "enrollNumber": "12345678901234",
+      "dateOfAdmission": "2025-07-09"
     }
   ]
 }

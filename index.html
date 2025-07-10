@@ -8,10 +8,11 @@
 </head>
 <body>
   <aside class="sidebar">
+    <h2 class="sidebar-title">| CRUD OPERATIONS</h2>
     <div class="perfil">
       <img src="./img/Profile.jpg" alt="Usuario">
       <p class="nombre">Juan Admin</p>
-      <p class="rol">Administrador</p>
+      <p class="rol">Adminin</p>
     </div>
     <nav class="menu">
       <a href="#inicio">Inicio</a>
@@ -31,20 +32,31 @@
         <h1>Students List</h1>
         <button onclick="showForm()">Agregar Estudiante</button>
       </header>
-      <form id="studentForm" style="display:none;">
+      <form id="studentForm" class="student-card" style="display: none;">
         <img src="./img/Useer_Profile.jpg" alt="Usuario" class="form-avatar">
+        <h2 class="form-title">Register New Student</h2>
+        
         <input type="hidden" id="studentId">
-        <h3>Nombre completo</h3>
-        <input type="text" id="name" placeholder="Nombre" required>
-        <h3>Email</h3>
+
+        <label class="fullname-center" for="name">Full name</label>
+        <input type="text" id="name" placeholder="Nombre" required> 
+
+        <label for="email">Email</label>
         <input type="email" id="email" placeholder="Email" required>
-        <h3>Phone</h3>
+
+        <label for="phone">Phone</label>
         <input type="text" id="phone" placeholder="Teléfono" required>
+
+        <label for="enrollNumber">Matrícula</label>
         <input type="text" id="enrollNumber" placeholder="Matrícula" required>
-        <h3>Fecha de ingreso</h3>
-        <input type="date" id="dateOfAdmission" placeholder="Fecha ingreso" required>
-        <button type="button" onclick="hideForm()">Cancelar</button>
-        <button type="submit">Guardar</button>
+
+        <label for="dateOfAdmission">Date of Admission</label>
+        <input type="date" id="dateOfAdmission" required>
+
+        <div class="form-buttons">
+          <button type="button" onclick="hideForm()">Cancel</button>
+          <button type="submit">Save</button>
+        </div>
       </form>
       <table id="studentTable">
         <thead>
@@ -61,35 +73,7 @@
       </table>
     </section>
 
-    <!-- CURSOS -->
-    <section id="cursos" class="spa-section" style="display:none;">
-      <h1>Cursos</h1>
-      <p>Contenido de cursos...</p>
-    </section>
 
-    <!-- USUARIOS -->
-    <section id="usuarios" class="spa-section" style="display:none;">
-      <h1>Usuarios</h1>
-      <p>Contenido de usuarios...</p>
-    </section>
-
-    <!-- PAGOS -->
-    <section id="pagos" class="spa-section" style="display:none;">
-      <h1>Pagos</h1>
-      <p>Contenido de pagos...</p>
-    </section>
-
-    <!-- REPORTES -->
-    <section id="reportes" class="spa-section" style="display:none;">
-      <h1>Reportes</h1>
-      <p>Contenido de reportes...</p>
-    </section>
-
-    <!-- CONFIGURACIÓN -->
-    <section id="configuracion" class="spa-section" style="display:none;">
-      <h1>Configuración</h1>
-      <p>Contenido de configuración...</p>
-    </section>
   </main>
   <script src="./src/script.js"></script>
   <script>

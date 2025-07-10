@@ -203,3 +203,150 @@ td:last-child button:hover {
   color: #555;
   font-size: 0.9rem;
 }
+
+/* Formulario de estudiante */
+.student-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 2rem;
+  max-width: 400px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  border: 2px solid grey; 
+}
+
+.student-card .form-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1rem auto;
+  display: block;
+}
+
+.student-card .form-title {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.student-card label {
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.student-card input[type="text"],
+.student-card input[type="email"],
+.student-card input[type="date"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.form-buttons button {
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  background: purple;
+  color: #fff;
+  transition: background 0.2s;
+}
+
+.form-buttons button[type="button"] {
+  background: #e53935;
+}
+
+.form-buttons button:hover {
+  opacity: 0.9;
+}
+
+/* Tabla de estudiantes */
+#studentTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+#studentTable th, #studentTable td {
+  padding: 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+#studentTable th {
+  background: #f5f5f5;
+  font-weight: 700;
+}
+
+#studentTable tr:last-child td {
+  border-bottom: none;
+}
+
+#studentTable button {
+  padding: 0.3rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  margin-right: 0.3rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  background: transparent;
+  color: #fff;
+  transition: background 0.2s;
+}
+
+.icn-editar {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: #6A00FE;
+}
+
+.icn-eliminar {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: #6A00FE;
+}
+
+#studentTable button:last-child {
+  background: transparent;
+}
+
+#studentTable button:hover {
+  opacity: 0.85;
+}
+
+.img-student {
+  width: 55px;
+  height: 40px;
+  border-radius: 4px; 
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.sidebar-title {
+  font-size: 1.0rem;
+  font-weight: bold;
+  color: black;
+  -webkit-text-stroke: 0.6px #E042F8; /* Contorno morado */
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  
+  letter-spacing: 1px;
+}
