@@ -350,3 +350,16 @@ td:last-child button:hover {
   
   letter-spacing: 1px;
 }
+
+
+.center-Nombre {
+  text-align: center;
+  font-weight: bold;
+ justify-content: space-between;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
