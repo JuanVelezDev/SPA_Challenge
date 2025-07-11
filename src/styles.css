@@ -68,7 +68,6 @@ body {
   margin-top: auto;
   padding: 10px 20px;
   border: none;
-  background-color: #e74c3c;
   color: white;
   border-radius: 5px;
   cursor: pointer;
@@ -94,7 +93,7 @@ body {
 }
 
 .contenido button {
-  background-color: #8e44ad;
+  background-color: #6A00FE;
   color: white;
   padding: 10px 15px;
   border: none;
@@ -344,7 +343,7 @@ td:last-child button:hover {
   font-size: 1.0rem;
   font-weight: bold;
   color: black;
-  -webkit-text-stroke: 0.6px #E042F8; /* Contorno morado */
+  text-shadow: 1px  1px 3px  #E042F8; 
   margin-bottom: 2rem;
   text-transform: uppercase;
   
@@ -360,6 +359,21 @@ td:last-child button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #ACACAC;
 }
 
+.vectorIcon {
+  margin-left: 610px;
+  display : block;
+  color: #6A00FE;
+  
+  
+}
+
+.table-header {
+  background-color: red;
+  font-weight: bold;
+}
+
+  
 
