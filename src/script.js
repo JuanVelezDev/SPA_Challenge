@@ -140,8 +140,10 @@ function isAuth() {
 if (!isAuth()) {
   window.location.href = 'login.html';
 }
-document.querySelector('.logout').onclick = function() {
+document.querySelector('.logout').parentElement.onclick = function() {
   localStorage.removeItem('isAuth');
   window.location.href = 'login.html';
-};
+};  
+
+
 

@@ -65,12 +65,14 @@ body {
 }
 
 .logout {
-  margin-top: auto;
-  padding: 10px 20px;
+ 
+  padding-left: 30px;
   border: none;
   color: white;
   border-radius: 5px;
   cursor: pointer;
+  
+  
 }
 
 /* Main Content */
